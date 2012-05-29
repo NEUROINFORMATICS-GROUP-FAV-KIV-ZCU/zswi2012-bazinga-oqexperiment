@@ -1,0 +1,35 @@
+ INFO     0[main] - Program started.
+ INFO   102[main] - Loading XML bean definitions from file [C:\Data\Prog\Eclipse\OQ-Experiment\eegDataProcessor\trunk\configs\config.xml]
+ INFO   326[main] - Selected epoch numbers are: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62]
+ WARN   337[main] - Invalid JavaBean property 'filterType' being accessed! Ambiguous write methods found next to actually used [public void kiv.eeg.dataProcessor.filters.DataFilter.setFilterType(java.lang.String)]: [public static void kiv.eeg.dataProcessor.filters.DataFilter.setFilterType(pilsner.fir.Filter$FilterTypes)]
+ WARN   337[main] - Invalid JavaBean property 'window' being accessed! Ambiguous write methods found next to actually used [public void kiv.eeg.dataProcessor.filters.DataFilter.setWindow(java.lang.String)]: [public static void kiv.eeg.dataProcessor.filters.DataFilter.setWindow(pilsner.signalwindows.WindowFactory$WINDOWS)]
+ INFO   349[main] - Reading from file: Kubasek_Stepan_04.vhdr
+ INFO   368[main] - Selected electrodes are: [1, 2, 3]
+ INFO   443[main] - Data successfully processed with Baseline Correction.
+ INFO   485[main] - Data successfully processed with FIR Filter.
+ INFO   504[main] - Data successfully processed with Average.
+ INFO   538[main] - Data (text) stored to directory: data/output/
+ INFO   553[main] - Data (binary) stored to directory: data/output/
+ INFO   553[main] - Reading from file: Kubasek_Stepan_05.vhdr
+ INFO   575[main] - Selected electrodes are: [17, 18, 19]
+ INFO   820[main] - Data successfully processed with Baseline Correction.
+ INFO   857[main] - Data successfully processed with FIR Filter.
+ INFO   866[main] - Data successfully processed with Average.
+ INFO   887[main] - Data (text) stored to directory: data/output/
+ INFO   895[main] - Data (binary) stored to directory: data/output/
+ INFO   896[main] - Reading from file: Petrak_Martin_02.vhdr
+ INFO   912[main] - Selected electrodes are: [17, 18, 19]
+ INFO  1125[main] - Data successfully processed with Baseline Correction.
+ INFO  1161[main] - Data successfully processed with FIR Filter.
+ INFO  1167[main] - Data successfully processed with Average.
+ INFO  1184[main] - Data (text) stored to directory: data/output/
+ INFO  1190[main] - Data (binary) stored to directory: data/output/
+ INFO  1190[main] - Reading from file: Petrak_Martin_03.vhdr
+ INFO  1205[main] - Selected electrodes are: [17, 18, 19]
+ INFO  1419[main] - Data successfully processed with Baseline Correction.
+ INFO  1455[main] - Data successfully processed with FIR Filter.
+ WARN  1455[main] - Selected epoch (54) is not "S  1" neither "S  2" stimul.
+ INFO  1461[main] - Data successfully processed with Average.
+ INFO  1477[main] - Data (text) stored to directory: data/output/
+ INFO  1483[main] - Data (binary) stored to directory: data/output/
+ INFO  1483[main] - Done.

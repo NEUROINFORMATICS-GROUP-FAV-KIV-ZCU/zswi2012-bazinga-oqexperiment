@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+                http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+
+	<bean id="main" class="kiv.eeg.dataProcessor.Runner">
+	
+	
+<!-- vhdrFilenamePath is either path to a FILE or path to a DIRECTORY
+	based on this argument program reads only one specified .vhdr file or all .vhdr files in directory
+ -->
+		<property name="vhdrFilenamePath" value="data/" />
+		
+		
+		<property name="dataReader">
+			<ref bean="bvdefReader"/>
+		</property>
+		
+		<property name="processors">
+			<list>
+				<ref bean="baseCorr"/>
+				<ref bean="dataFilter"/>
+				<ref bean="average"/>
+			</list>
+		</property>
+
+		<property name="writers">
+			<list>
+				<ref bean="writer1"/>
+				<ref bean="writer2"/> 
+			</list>
+		</property>
+
+	</bean>
+
+
+
+
+
+<!-- READER -->
+
+	<bean id="bvdefReader" class="kiv.eeg.dataProcessor.reader.BvdefReader">
+		<property name="epochLength" value="1100" />
+		<property name="millisBeforeStimul" value="-100" />
+		<property name="selectedElectrodeNames" value="Fz, Cz, Pz" />
+		<property name="stringSelectedEpochs" value="1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62" /> 
+	</bean>
+	
+	
+	
+	
+	
+<!-- PROCESSORS -->
+	
+	<bean id="baseCorr" class="kiv.eeg.dataProcessor.filters.BaselineCorrection">
+	
+	</bean>
+	
+	<bean id="dataFilter" class="kiv.eeg.dataProcessor.filters.DataFilter">
+		<property name="filterOrder" value="4" />
+		<property name="filterType" value="BANDTH_PASS" />
+		<property name="window" value="RECTANGULAR_WINDOW" />
+		<property name="bandPassFreqFrom" value="50.0" />   
+		<property name="bandPassFreqTo" value="400.0" />
+		
+		<!--	filterOrder - only even values!
+				bandPassFreqFrom - value from interval (0, samplingInterval / 2)
+				bandPassFreqTo - value from interval (0, samplingInterval / 2)  -->
+			
+	</bean>
+	
+	<bean id="average" class="kiv.eeg.dataProcessor.filters.Average">
+		<property name="averagedEpochsNumber" value="20" />
+	</bean>
+
+
+
+
+
+<!-- WRITERS -->
+
+	<bean id="writer1" class="kiv.eeg.dataProcessor.writer.TextWriter">
+		<property name="filePath" value="data/output/" />
+		<property name="numberSeparator" value=" " />
+	</bean>
+	
+	<bean id="writer2" class="kiv.eeg.dataProcessor.writer.BvdefWriter">
+		<property name="filePath" value="data/output/" />
+	</bean>
+	
+	
+	
+</beans>
+
